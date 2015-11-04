@@ -1,0 +1,33 @@
+<h1>My Songs</h1>
+<p><%= link_to new_song_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add
+  <% end %>
+</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Songs</h1>
+
+<div class="row">
+  <% @songs.each do |song| %>
+  <div class="col-md-6">
+    <div class="well">
+      <h2><%= link_to song.name, song %></h2>
+      <h3>by <%= song.artist.name %></h3>
+      <h4><%= song.rating %></h4>
+      <hr/>
+      <h4><%= link_to edit_song_path(song) do %>
+       <p>
+        <% "#{song.rating}".to_i.times do %>
+        <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+      </p>
+      <% end %>
+    </h4>   
+  </div>
+</div>
+<% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Song', new_song_path %>
